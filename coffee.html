@@ -55,8 +55,12 @@
 
     var myRevenueMessage = document.getElementById("revenue");
 
-    function makeCoffee() {
+    drinksOrdered = [];
+    function makeCoffee(drinkType) {
         myImage.setAttribute('src','./static/coffee_mug.jpg');
+        drinksOrdered.push(drinkType);
+        console.log(drinksOrdered);
+
     }
 
     function coffeeMachine() {
@@ -65,7 +69,7 @@
 
     function imageClick(evt) {
         setTimeout(coffeeMachine, 0);
-        setTimeout(makeCoffee, 1500);
+        setTimeout(function (){return makeCoffee("brew");}, 1500);
         setTimeout(function(){
             myImage.setAttribute('src', './static/coffee_beans.jpg');
         },2500);
@@ -79,6 +83,18 @@
         "latte": 4.15,
         "hot chocolate": 2.50
     };
+
+    var hotChocolate = document.getElementById("hot-chocolate");
+    var espresso = document.getElementById("espresso");
+    var latte = document.getElementById("latte");
+
+    hotChocolate.addEventListener('click', function () {makeCoffee('hotChocolate');});
+
+        // pseudocode
+        // when user clicks the hot chocolate button
+        // drinktype is set to hot chocolate
+        // call the makeCoffee function with drinkType
+        // 
 
 
 </script>
